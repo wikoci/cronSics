@@ -68,7 +68,7 @@ async function allCommands() {
 
     }
 
-    console.log('Latest cron did on ', Cron_.cbModification)
+    console.log(chalk.green('Latest cron did on ' + Cron_.cbModification))
 
     prisma.f_DOCLIGNE
         .findMany({

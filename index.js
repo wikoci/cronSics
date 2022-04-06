@@ -5,11 +5,9 @@ global.log = require('consola')
 const express = require('express');
 const app = express();
 
-
 require("./src") // Entry App
-
-
 
 app.listen(process.env.PORT, () => {
     log.success(chalk.green("Cron Sics is running on port : ") + process.env.PORT)
+    log.info('\n\n_____ POWERED BY SGCI v1.0 | ESAVOO HOOKS ___________\n')
 })

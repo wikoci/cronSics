@@ -5,6 +5,6 @@ const { connection, recentCrons, sequelize } = require("./db");
 (async() => {
 
 
-    await connection()
+    // await connection()
     allCommands(); // cmd for get all commands
 })();
