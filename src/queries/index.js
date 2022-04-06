@@ -60,10 +60,13 @@ async function allCommands() {
 
     try {
         if (!Cron_.cbModification) {
-            // console.error("cbModification must be deine in ./src/queries/lastCron.json")
+            log.error(":::: cbModification must be define in ./src/queries/lastCron.json :::")
             return false
         }
     } catch (err) {
+        log.error(
+            "::: cbModification must be define in ./src/queries/lastCron.json :::"
+        );
         return false
 
     }
