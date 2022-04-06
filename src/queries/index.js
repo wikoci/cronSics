@@ -3,21 +3,47 @@ const prisma = new PrismaClient();
 const moment = require("moment");
 const fs = require("fs");
 
-function getDate() {
+async function getDate() {
 
-    var lastCron = fs.readFileSync(__dirname + "/lastCron.json");
-    console.log(lastCron);
+    return new Promise(async(resolve, reject) => {
+        try {
 
+            var lastCron = fs.readFileSync(__dirname + "/lastCron.json");
+            console.log(lastCron);
+            resolve(lastCron)
+        } catch (err) {
+            reject(null)
+        }
+
+    })
 }
 
-function setDate(rws) { // set last BC datetime
+async function setDate(rws) { // set last BC datetime
 
-    if (rws.length && rws[0].cbModification) {
-        var jsonText = {
-            cbModification: rws[0].cbModification,
-        };
-        fs.writeFileSync(__dirname + "/lastCron.json", JSON.stringify(jsonText));
-    } else {}
+    return new Promise(async(resolve, reject) => {
+        try {
+
+            if (rws.length && rws[0].cbModification) {
+                var jsonText = {
+                    cbModification: rws[0].cbModification || null,
+                };
+                fs.writeFileSync(
+                    __dirname + "/lastCron.json",
+                    JSON.stringify(jsonText)
+                );
+
+                return resolve();
+            }
+
+            return null
+
+        } catch (err) {
+
+            return reject(err)
+        }
+
+
+    })
 
 
 }
