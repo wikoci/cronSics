@@ -96,7 +96,7 @@ async function allCommands() {
             },
         })
         .then((e) => {
-
+            console.log(`\nThere are/is ${e.length} item(s) to push  \n`)
             setDate(e)
 
         })
