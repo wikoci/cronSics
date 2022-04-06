@@ -80,7 +80,7 @@ async function allCommands() {
             },
             where: {
                 cbModification: {
-                    gte: moment().subtract(1, "days").toISOString(),
+                    gte: Cron_.cbModification,
                 },
                 DO_Type: { in: [1, 3] },
             },
