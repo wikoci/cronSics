@@ -80,7 +80,7 @@ async function allCommands() {
             },
             where: {
                 cbModification: {
-                    gte: Cron_.cbModification,
+                    gt: Cron_.cbModification,
                 },
                 DO_Type: { in: [1, 3] },
             },
