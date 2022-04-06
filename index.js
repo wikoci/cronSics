@@ -11,5 +11,5 @@ require("./src") // Entry App
 
 
 app.listen(process.env.PORT, () => {
-    log.success(chalk.green("\nCron Sics is running on port : ") + process.env.PORT)
+    log.success(chalk.green("Cron Sics is running on port : ") + process.env.PORT)
 })

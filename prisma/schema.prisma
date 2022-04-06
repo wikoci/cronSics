@@ -6,6 +6,14 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlserver"
   url      = env("DATABASE_URL")
+}
+
+
+model Commandes {
+  id    Int     @id @default(autoincrement())
+  CT_Num String
+  DO_Piece String
+  DL_Ligne String
 }
