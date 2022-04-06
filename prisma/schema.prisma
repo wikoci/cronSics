@@ -14,7 +14,6 @@ model F_DOCLIGNE {
   DO_Domaine                             Int?              @db.SmallInt
   DO_Type                                Int               @db.SmallInt
   CT_Num                                 String?           @db.VarChar(17)
-  cbCT_Num                               Bytes?            @db.VarBinary(18)
   DO_Piece                               String            @db.VarChar(13)
   DL_PieceBC                             String?           @db.VarChar(13)
   DL_PieceBL                             String?           @db.VarChar(13)
@@ -23,12 +22,10 @@ model F_DOCLIGNE {
   DL_DateBL                              DateTime?         @db.DateTime
   DL_Ligne                               Int?
   DO_Ref                                 String?           @db.VarChar(17)
-  cbDO_Ref                               Bytes?            @db.VarBinary(18)
   DL_TNomencl                            Int?              @db.SmallInt
   DL_TRemPied                            Int?              @db.SmallInt
   DL_TRemExep                            Int?              @db.SmallInt
   AR_Ref                                 String?           @db.VarChar(19)
-  cbAR_Ref                               Bytes?            @db.VarBinary(20)
   DL_Design                              String?           @db.VarChar(69)
   DL_Qte                                 Decimal?          @db.Decimal(24, 6)
   DL_QteBC                               Decimal?          @db.Decimal(24, 6)
@@ -59,7 +56,6 @@ model F_DOCLIGNE {
   DT_No                                  Int?
   cbDT_No                                Int?
   AF_RefFourniss                         String?           @db.VarChar(19)
-  cbAF_RefFourniss                       Bytes?            @db.VarBinary(20)
   EU_Enumere                             String?           @db.VarChar(35)
   EU_Qte                                 Decimal?          @db.Decimal(24, 6)
   DL_TTC                                 Int?              @db.SmallInt
@@ -72,14 +68,12 @@ model F_DOCLIGNE {
   DL_No                                  Int?              @unique(map: "IDL_NO")
   DO_DateLivr                            DateTime?         @db.DateTime
   CA_Num                                 String?           @db.VarChar(13)
-  cbCA_Num                               Bytes?            @db.VarBinary(14)
   DL_Taxe3                               Decimal?          @db.Decimal(24, 6)
   DL_TypeTaux3                           Int?              @db.SmallInt
   DL_TypeTaxe3                           Int?              @db.SmallInt
   DL_Frais                               Decimal?          @db.Decimal(24, 6)
   DL_Valorise                            Int?              @db.SmallInt
   AR_RefCompose                          String?           @db.VarChar(19)
-  cbAR_RefCompose                        Bytes?            @db.VarBinary(20)
   DL_NonLivre                            Int?              @db.SmallInt
   AC_RefClient                           String?           @db.VarChar(19)
   DL_MontantHT                           Decimal?          @db.Decimal(24, 6)
