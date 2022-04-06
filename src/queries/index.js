@@ -10,9 +10,16 @@ function getDate() {
 
 }
 
-function setDate(rws) {
+function setDate(rws) { // set last BC datetime
 
-    console.log(rws[0])
+    if (rws.length) {
+        fs.writeFileSync(__dirname + "lastCron.json", {
+            cbModification: rws[0].cbModification
+        })
+    } else {
+
+
+    }
 
 
 }
