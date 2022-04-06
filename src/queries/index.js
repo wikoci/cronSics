@@ -9,7 +9,7 @@ async function getDate() {
         try {
 
             var lastCron = fs.readFileSync(__dirname + "/lastCron.json", "utf8");
-            console.log(lastCron);
+            lastCron = JSON.parse(lastCron)
             resolve(lastCron)
         } catch (err) {
             reject(null)
