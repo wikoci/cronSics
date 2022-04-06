@@ -2,6 +2,7 @@ const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const moment = require("moment");
 const fs = require("fs");
+const { conforms } = require("lodash");
 
 
 async function getDate() {
@@ -66,6 +67,8 @@ async function allCommands() {
         return false
 
     }
+
+    console.log('Latest cron did on ', Cron_.cbModification)
 
     prisma.f_DOCLIGNE
         .findMany({
