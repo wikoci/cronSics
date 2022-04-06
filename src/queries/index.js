@@ -3,6 +3,7 @@ const prisma = new PrismaClient();
 const moment = require("moment");
 const fs = require("fs");
 
+
 async function getDate() {
 
     return new Promise(async(resolve, reject) => {
@@ -54,11 +55,17 @@ async function allCommands() {
 
 
 
-    var lastCron = await getDate().then(e => e).catch(err => null) // Initialized start date in ./src/queries/lastCron.json
+    var Cron_ = await getDate().then(e => e).catch(err => null) // Initialized start date in ./src/queries/lastCron.json
 
-    console.log(lastCron)
+    try {
+        if (!Cron_.cbModification) {
+            // console.error("cbModification must be deine in ./src/queries/lastCron.json")
+            return false
+        }
+    } catch (err) {
+        return false
 
-
+    }
 
     prisma.f_DOCLIGNE
         .findMany({
