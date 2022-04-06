@@ -5,21 +5,19 @@ const fs = require("fs");
 
 function getDate() {
 
-    var lastCron = fs.readFileSync(__dirname + "lastCron.json", "utf8");
+    var lastCron = fs.readFileSync(__dirname + "/lastCron.json");
     console.log(lastCron);
 
 }
 
 function setDate(rws) { // set last BC datetime
 
-    if (rws.length) {
-        fs.writeFileSync(__dirname + "lastCron.json", {
-            cbModification: rws[0].cbModification
-        })
-    } else {
-
-
-    }
+    if (rws.length && rws[0].cbModification) {
+        var jsonText = {
+            cbModification: rws[0].cbModification,
+        };
+        fs.writeFileSync(__dirname + "/lastCron.json", JSON.stringify(jsonText));
+    } else {}
 
 
 }
@@ -27,6 +25,8 @@ function setDate(rws) { // set last BC datetime
 
 
 function allCommands() {
+
+
 
 
 

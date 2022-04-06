@@ -2,10 +2,6 @@ const { allCommands } = require("./queries"); // List of commands
 const { connection, recentCrons, sequelize } = require("./db");
 
 
-
-
-
-
 (async() => {
 
 
