@@ -12,7 +12,7 @@ function getDate() {
 
 function setDate(rws) {
 
-    console.log(rws.length)
+    console.log(rws[0])
 
 
 }
