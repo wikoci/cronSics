@@ -1,15 +1,25 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
+const moment = require("moment");
 
 function allCommands() {
-    prisma.commandes
-        .findMany()
-        .then((e) => {
-            log.info("Resultat ", e);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+
+    console.log("Fetch commands");
+    prisma.f_DOCLIGNE.findMany({
+        where: {
+            cbModification: {
+                gte: moment().subtract(1, 'days').toISOString()
+            }
+
+        }
+
+    }).then(e => {
+
+        console.log(e)
+    }).catch(err => {
+
+        console.log(err)
+    })
 
 }
 

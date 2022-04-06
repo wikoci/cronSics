@@ -10,8 +10,5 @@ const { connection, recentCrons, sequelize } = require("./db");
 
 
     await connection()
-
-
-
-    // allCommands(); // cmd for get all commands
+    allCommands(); // cmd for get all commands
 })();
