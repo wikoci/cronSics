@@ -28,7 +28,7 @@ function allCommands() {
     prisma.f_DOCLIGNE
         .findMany({
             orderBy: {
-                cbModification: "desc",
+                cbModification: "asc",
             },
             where: {
                 cbModification: {
