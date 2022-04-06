@@ -50,11 +50,11 @@ async function setDate(rws) { // set last BC datetime
 
 
 
-function allCommands() {
+async function allCommands() {
 
 
 
-
+    var lastCron = getDate().then(e => e).catch(err => null) // Initialized start date in ./src/queries/lastCron.json
 
 
 
