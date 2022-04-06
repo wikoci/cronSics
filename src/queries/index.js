@@ -54,7 +54,9 @@ async function allCommands() {
 
 
 
-    var lastCron = getDate().then(e => e).catch(err => null) // Initialized start date in ./src/queries/lastCron.json
+    var lastCron = await getDate().then(e => e).catch(err => null) // Initialized start date in ./src/queries/lastCron.json
+
+    console.log(lastCron)
 
 
 
