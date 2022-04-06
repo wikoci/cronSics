@@ -8,7 +8,7 @@ async function getDate() {
     return new Promise(async(resolve, reject) => {
         try {
 
-            var lastCron = fs.readFileSync(__dirname + "/lastCron.json");
+            var lastCron = fs.readFileSync(__dirname + "/lastCron.json", "utf8");
             console.log(lastCron);
             resolve(lastCron)
         } catch (err) {
