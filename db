@@ -1,0 +1,126 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model F_DOCLIGNE {
+  DO_Domaine                             Int?              @db.SmallInt
+  DO_Type                                Int               @db.SmallInt
+  CT_Num                                 String?           @db.VarChar(17)
+  DO_Piece                               String            @db.VarChar(13)
+  DL_PieceBC                             String?           @db.VarChar(13)
+  DL_PieceBL                             String?           @db.VarChar(13)
+  DO_Date                                DateTime?         @db.DateTime
+  DL_DateBC                              DateTime?         @db.DateTime
+  DL_DateBL                              DateTime?         @db.DateTime
+  DL_Ligne                               Int?
+  DO_Ref                                 String?           @db.VarChar(17)
+  DL_TNomencl                            Int?              @db.SmallInt
+  DL_TRemPied                            Int?              @db.SmallInt
+  DL_TRemExep                            Int?              @db.SmallInt
+  AR_Ref                                 String?           @db.VarChar(19)
+  DL_Design                              String?           @db.VarChar(69)
+  DL_Qte                                 Decimal?          @db.Decimal(24, 6)
+  DL_QteBC                               Decimal?          @db.Decimal(24, 6)
+  DL_QteBL                               Decimal?          @db.Decimal(24, 6)
+  DL_PoidsNet                            Decimal?          @db.Decimal(24, 6)
+  DL_PoidsBrut                           Decimal?          @db.Decimal(24, 6)
+  DL_Remise01REM_Valeur                  Decimal?          @db.Decimal(24, 6)
+  DL_Remise01REM_Type                    Int?              @db.SmallInt
+  DL_Remise02REM_Valeur                  Decimal?          @db.Decimal(24, 6)
+  DL_Remise02REM_Type                    Int?              @db.SmallInt
+  DL_Remise03REM_Valeur                  Decimal?          @db.Decimal(24, 6)
+  DL_Remise03REM_Type                    Int?              @db.SmallInt
+  DL_PrixUnitaire                        Decimal?          @db.Decimal(24, 6)
+  DL_PUBC                                Decimal?          @db.Decimal(24, 6)
+  DL_Taxe1                               Decimal?          @db.Decimal(24, 6)
+  DL_TypeTaux1                           Int?              @db.SmallInt
+  DL_TypeTaxe1                           Int?              @db.SmallInt
+  DL_Taxe2                               Decimal?          @db.Decimal(24, 6)
+  DL_TypeTaux2                           Int?              @db.SmallInt
+  DL_TypeTaxe2                           Int?              @db.SmallInt
+  CO_No                                  Int?
+  cbCO_No                                Int?
+  AG_No1                                 Int?
+  AG_No2                                 Int?
+  DL_PrixRU                              Decimal?          @db.Decimal(24, 6)
+  DL_CMUP                                Decimal?          @db.Decimal(24, 6)
+  DL_MvtStock                            Int?              @db.SmallInt
+  DT_No                                  Int?
+  cbDT_No                                Int?
+  AF_RefFourniss                         String?           @db.VarChar(19)
+  EU_Enumere                             String?           @db.VarChar(35)
+  EU_Qte                                 Decimal?          @db.Decimal(24, 6)
+  DL_TTC                                 Int?              @db.SmallInt
+  DE_No                                  Int?
+  cbDE_No                                Int?
+  DL_NoRef                               Int?              @db.SmallInt
+  DL_TypePL                              Int?              @db.SmallInt
+  DL_PUDevise                            Decimal?          @db.Decimal(24, 6)
+  DL_PUTTC                               Decimal?          @db.Decimal(24, 6)
+  DL_No                                  Int?              @unique(map: "IDL_NO")
+  DO_DateLivr                            DateTime?         @db.DateTime
+  CA_Num                                 String?           @db.VarChar(13)
+  DL_Taxe3                               Decimal?          @db.Decimal(24, 6)
+  DL_TypeTaux3                           Int?              @db.SmallInt
+  DL_TypeTaxe3                           Int?              @db.SmallInt
+  DL_Frais                               Decimal?          @db.Decimal(24, 6)
+  DL_Valorise                            Int?              @db.SmallInt
+  AR_RefCompose                          String?           @db.VarChar(19)
+  DL_NonLivre                            Int?              @db.SmallInt
+  AC_RefClient                           String?           @db.VarChar(19)
+  DL_MontantHT                           Decimal?          @db.Decimal(24, 6)
+  DL_MontantTTC                          Decimal?          @db.Decimal(24, 6)
+  DL_FactPoids                           Int?              @db.SmallInt
+  DL_Escompte                            Int?              @db.SmallInt
+  DL_PiecePL                             String?           @db.VarChar(13)
+  DL_DatePL                              DateTime?         @db.DateTime
+  DL_QtePL                               Decimal?          @db.Decimal(24, 6)
+  DL_NoColis                             String?           @db.VarChar(19)
+  DL_NoLink                              Int?
+  cbDL_NoLink                            Int?
+  RP_Code                                String?           @db.VarChar(11)
+  cbRP_Code                              Bytes?            @db.VarBinary(12)
+  DL_QteRessource                        Int?
+  DL_DateAvancement                      DateTime?         @db.DateTime
+  PF_Num                                 String            @db.VarChar(9)
+  cbPF_Num                               Bytes?            @db.VarBinary(10)
+  DL_CodeTaxe1                           String?           @db.VarChar(5)
+  DL_CodeTaxe2                           String?           @db.VarChar(5)
+  DL_CodeTaxe3                           String?           @db.VarChar(5)
+  DL_PieceOFProd                         Int?
+  DL_PieceDE                             String?           @db.VarChar(13)
+  DL_DateDE                              DateTime?         @db.DateTime
+  DL_QteDE                               Decimal?          @db.Decimal(24, 6)
+  DL_Operation                           String?           @db.VarChar(11)
+  cbProt                                 Int?              @db.SmallInt
+  cbMarq                                 Int               @id(map: "PK_CBMARQ_F_DOCLIGNE") @default(autoincrement())
+  cbCreateur                             String?           @db.Char(4)
+  cbModification                         DateTime?         @db.DateTime
+  cbReplication                          Int?
+  cbFlag                                 Int?              @db.SmallInt
+  Timbre                                 Decimal?          @db.Decimal(24, 6)
+  Calcul_Poids                           Decimal?          @db.Decimal(24, 6)
+  N_Lot                                  String?           @map("N°Lot") @db.VarChar(4)
+  Nombre_Piece                           Decimal?          @map("Nombre Piece") @db.Decimal(24, 6)
+  N_                                     String?           @map("N°") @db.VarChar(5)
+  Ph                                     String?           @db.VarChar(5)
+  Actions                                String?           @db.VarChar(21)
+  Problemes                              String?           @db.VarChar(21)
+  Conditionnement                        String?           @db.VarChar(21)
+  cbCreation                             DateTime?         @db.DateTime
+  cbCreationUser                         String?           @db.UniqueIdentifier
+  DL_Design                              String?           @db.VarChar(69)
+ 
+
+
+
+
+}

@@ -118,9 +118,167 @@ model F_DOCLIGNE {
   cbCreation                             DateTime?         @db.DateTime
   cbCreationUser                         String?           @db.UniqueIdentifier
 
- 
+}
 
-
-
-
+model F_COMPTET {
+  CT_Num                                                     String            @unique(map: "UKA_F_COMPTET_CT_Num") @db.VarChar(17)
+  cbCT_Num                                                   Bytes?            @unique(map: "ICT_NUM") @db.VarBinary(18)
+  CT_Intitule                                                String?           @db.VarChar(69)
+  CT_Type                                                    Int?              @db.SmallInt
+  CG_NumPrinc                                                String?           @db.VarChar(13)
+  CT_Qualite                                                 String?           @db.VarChar(17)
+  CT_Classement                                              String?           @db.VarChar(17)
+  cbCT_Classement                                            Bytes?            @db.VarBinary(18)
+  CT_Contact                                                 String?           @db.VarChar(35)
+  CT_Adresse                                                 String?           @db.VarChar(35)
+  CT_Complement                                              String?           @db.VarChar(35)
+  CT_CodePostal                                              String?           @db.VarChar(9)
+  cbCT_CodePostal                                            Bytes?            @db.VarBinary(10)
+  CT_Ville                                                   String?           @db.VarChar(35)
+  CT_CodeRegion                                              String?           @db.VarChar(25)
+  CT_Pays                                                    String?           @db.VarChar(35)
+  CT_Raccourci                                               String?           @db.VarChar(7)
+  cbCT_Raccourci                                             Bytes?            @db.VarBinary(8)
+  BT_Num                                                     Int?              @db.SmallInt
+  N_Devise                                                   Int?              @db.SmallInt
+  CT_Ape                                                     String?           @db.VarChar(7)
+  CT_Identifiant                                             String?           @db.VarChar(25)
+  CT_Siret                                                   String?           @db.VarChar(15)
+  CT_Statistique01                                           String?           @db.VarChar(21)
+  CT_Statistique02                                           String?           @db.VarChar(21)
+  CT_Statistique03                                           String?           @db.VarChar(21)
+  CT_Statistique04                                           String?           @db.VarChar(21)
+  CT_Statistique05                                           String?           @db.VarChar(21)
+  CT_Statistique06                                           String?           @db.VarChar(21)
+  CT_Statistique07                                           String?           @db.VarChar(21)
+  CT_Statistique08                                           String?           @db.VarChar(21)
+  CT_Statistique09                                           String?           @db.VarChar(21)
+  CT_Statistique10                                           String?           @db.VarChar(21)
+  CT_Commentaire                                             String?           @db.VarChar(35)
+  CT_Encours                                                 Decimal?          @db.Decimal(24, 6)
+  CT_Assurance                                               Decimal?          @db.Decimal(24, 6)
+  CT_NumPayeur                                               String?           @db.VarChar(17)
+  cbCT_NumPayeur                                             Bytes?            @db.VarBinary(18)
+  N_Risque                                                   Int?              @db.SmallInt
+  CO_No                                                      Int?
+  cbCO_No                                                    Int?
+  N_CatTarif                                                 Int?              @db.SmallInt
+  CT_Taux01                                                  Decimal?          @db.Decimal(24, 6)
+  CT_Taux02                                                  Decimal?          @db.Decimal(24, 6)
+  CT_Taux03                                                  Decimal?          @db.Decimal(24, 6)
+  CT_Taux04                                                  Decimal?          @db.Decimal(24, 6)
+  N_CatCompta                                                Int?              @db.SmallInt
+  N_Period                                                   Int?              @db.SmallInt
+  CT_Facture                                                 Int?              @db.SmallInt
+  CT_BLFact                                                  Int?              @db.SmallInt
+  CT_Langue                                                  Int?              @db.SmallInt
+  N_Expedition                                               Int?              @db.SmallInt
+  N_Condition                                                Int?              @db.SmallInt
+  CT_Saut                                                    Int?              @db.SmallInt
+  CT_Lettrage                                                Int?              @db.SmallInt
+  CT_ValidEch                                                Int?              @db.SmallInt
+  CT_Sommeil                                                 Int?              @db.SmallInt
+  DE_No                                                      Int?
+  cbDE_No                                                    Int?
+  CT_ControlEnc                                              Int?              @db.SmallInt
+  CT_NotRappel                                               Int?              @db.SmallInt
+  N_Analytique                                               Int?              @db.SmallInt
+  cbN_Analytique                                             Int?              @db.SmallInt
+  CA_Num                                                     String?           @db.VarChar(13)
+  cbCA_Num                                                   Bytes?            @db.VarBinary(14)
+  CT_Telephone                                               String?           @db.VarChar(21)
+  CT_Telecopie                                               String?           @db.VarChar(21)
+  CT_EMail                                                   String?           @db.VarChar(69)
+  CT_Site                                                    String?           @db.VarChar(69)
+  CT_Coface                                                  String?           @db.VarChar(25)
+  CT_Surveillance                                            Int?              @db.SmallInt
+  CT_SvDateCreate                                            DateTime?         @db.DateTime
+  CT_SvFormeJuri                                             String?           @db.VarChar(33)
+  CT_SvEffectif                                              String?           @db.VarChar(11)
+  CT_SvCA                                                    Decimal?          @db.Decimal(24, 6)
+  CT_SvResultat                                              Decimal?          @db.Decimal(24, 6)
+  CT_SvIncident                                              Int?              @db.SmallInt
+  CT_SvDateIncid                                             DateTime?         @db.DateTime
+  CT_SvPrivil                                                Int?              @db.SmallInt
+  CT_SvRegul                                                 String?           @db.VarChar(3)
+  CT_SvCotation                                              String?           @db.VarChar(5)
+  CT_SvDateMaj                                               DateTime?         @db.DateTime
+  CT_SvObjetMaj                                              String?           @db.VarChar(61)
+  CT_SvDateBilan                                             DateTime?         @db.DateTime
+  CT_SvNbMoisBilan                                           Int?              @db.SmallInt
+  N_AnalytiqueIFRS                                           Int?              @db.SmallInt
+  cbN_AnalytiqueIFRS                                         Int?              @db.SmallInt
+  CA_NumIFRS                                                 String?           @db.VarChar(13)
+  CT_PrioriteLivr                                            Int?              @db.SmallInt
+  CT_LivrPartielle                                           Int?              @db.SmallInt
+  MR_No                                                      Int?
+  cbMR_No                                                    Int?
+  CT_NotPenal                                                Int?              @db.SmallInt
+  EB_No                                                      Int?
+  cbEB_No                                                    Int?
+  CT_NumCentrale                                             String?           @db.VarChar(17)
+  cbCT_NumCentrale                                           Bytes?            @db.VarBinary(18)
+  CT_DateFermeDebut                                          DateTime?         @db.DateTime
+  CT_DateFermeFin                                            DateTime?         @db.DateTime
+  CT_FactureElec                                             Int?              @db.SmallInt
+  CT_TypeNIF                                                 Int?              @db.SmallInt
+  CT_RepresentInt                                            String?           @db.VarChar(35)
+  CT_RepresentNIF                                            String?           @db.VarChar(25)
+  CT_EdiCodeType                                             Int?              @db.SmallInt
+  CT_EdiCode                                                 String?           @db.VarChar(23)
+  CT_EdiCodeSage                                             String?           @db.VarChar(9)
+  CT_ProfilSoc                                               Int?              @db.SmallInt
+  CT_StatutContrat                                           Int?              @db.SmallInt
+  CT_DateMAJ                                                 DateTime?         @db.DateTime
+  CT_EchangeRappro                                           Int?              @db.SmallInt
+  CT_EchangeCR                                               Int?              @db.SmallInt
+  PI_NoEchange                                               Int?
+  cbPI_NoEchange                                             Int?
+  CT_BonAPayer                                               Int?              @db.SmallInt
+  CT_DelaiTransport                                          Int?              @db.SmallInt
+  CT_DelaiAppro                                              Int?              @db.SmallInt
+  CT_LangueISO2                                              String?           @db.VarChar(3)
+  CT_AnnulationCR                                            Int?              @db.SmallInt
+  cbProt                                                     Int?              @db.SmallInt
+  cbMarq                                                     Int               @id(map: "PK_CBMARQ_F_COMPTET") @default(autoincrement())
+  cbCreateur                                                 String?           @db.Char(4)
+  cbModification                                             DateTime?         @db.DateTime
+  cbReplication                                              Int?
+  cbFlag                                                     Int?              @db.SmallInt
+  cbCreation                                                 DateTime?         @db.DateTime
+  cbCreationUser                                             String?           @db.UniqueIdentifier
+  CT_CessionCreance                                          Int?              @db.SmallInt
+  CT_Facebook                                                String?           @db.VarChar(35)
+  CT_LinkedIn                                                String?           @db.VarChar(35)
+  CT_ExclureTrait                                            Int?              @db.SmallInt
+  CT_GDPR                                                    Int?              @db.SmallInt
+  CT_Prospect                                                Int?              @db.SmallInt
+  cbCG_NumPrinc                                              Bytes?            @db.VarBinary(14)
+  @@index([N_Analytique, CA_Num], map: "FKIA_F_COMPTET_CA_Num")
+  @@index([N_AnalytiqueIFRS, CA_NumIFRS], map: "FKIA_F_COMPTET_CA_NumIFRS")
+  @@index([CG_NumPrinc], map: "FKIA_F_COMPTET_CG_Num")
+  @@index([cbCO_No], map: "FKIA_F_COMPTET_CO_No")
+  @@index([cbEB_No], map: "FKIA_F_COMPTET_EB_No")
+  @@index([cbMR_No], map: "FKIA_F_COMPTET_MR_No")
+  @@index([cbPI_NoEchange], map: "FKIA_F_COMPTET_PI_NoEchange")
+  @@index([N_Analytique, cbCA_Num, cbCT_Num], map: "ICT_CANUM")
+  @@index([N_Analytique, cbCA_Num, CT_Type, cbCT_Num], map: "ICT_CANUMTYPE")
+  @@index([cbCG_NumPrinc], map: "ICT_CGNUMPRINC")
+  @@index([cbCT_Classement, cbCT_Num], map: "ICT_CLASS")
+  @@index([cbCT_CodePostal, cbCT_Num], map: "ICT_CODEPOSTAL")
+  @@index([CO_No], map: "ICT_CONO")
+  @@index([DE_No], map: "ICT_DENO")
+  @@index([cbCT_NumCentrale], map: "ICT_NUMCENTRALE")
+  @@index([cbCT_NumPayeur], map: "ICT_NUMPAYEUR")
+  @@index([PI_NoEchange], map: "ICT_PINOECHANGE")
+  @@index([cbCT_Raccourci], map: "ICT_RACC")
+  @@index([CT_Sommeil, cbCT_Classement, cbCT_Num], map: "ICT_SOMCLASS")
+  @@index([CT_Sommeil, cbCT_CodePostal, cbCT_Num], map: "ICT_SOMCODEP")
+  @@index([CT_Sommeil, cbCT_Num], map: "ICT_SOMNUM")
+  @@index([CT_Sommeil, CT_Type, cbCT_Num], map: "ICT_SOMTYPE")
+  @@index([CT_Sommeil, CT_Type, cbCT_Classement, cbCT_Num], map: "ICT_SOMTYPECLASS")
+  @@index([CT_Sommeil, CT_Type, cbCT_CodePostal, cbCT_Num], map: "ICT_SOMTYPECODEP")
+  @@index([CT_Type, cbCT_Num], map: "ICT_TYPE")
+  @@index([CT_Type, cbCT_Classement, cbCT_Num], map: "ICT_TYPECLASS")
+  @@index([CT_Type, cbCT_CodePostal, cbCT_Num], map: "ICT_TYPECODEP")
 }

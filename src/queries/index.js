@@ -1,9 +1,20 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const moment = require("moment");
+
+
 const fs = require("fs");
 const { conforms } = require("lodash");
 
+
+
+async function deployToServer() {
+
+
+
+
+
+}
 
 async function getDate() {
 
@@ -82,9 +93,15 @@ async function allCommands() {
                 cbModification: {
                     gt: Cron_.cbModification,
                 },
-                DO_Type: { in: [1, 3] },
+                DO_Type: { in: [3] },
+                CO_No: {
+                    gte: 42,
+                    notIn: [46, 47]
+                },
+
             },
             select: {
+                CO_No: true, //
                 CT_Num: true, // Code client
                 cbModification: true, // Date de modification et date de mise à jour
                 DO_Ref: true, //
@@ -96,6 +113,8 @@ async function allCommands() {
                 DL_MontantHT: true, //
                 DL_MontantTTC: true, //
                 DL_Design: true, //
+                Calcul_Poids: true //
+
             },
         })
         .then((e) => {
