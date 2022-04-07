@@ -8,9 +8,13 @@ const { conforms } = require("lodash");
 
 
 
-async function deployToServer() {
+async function deployToServer(items) {
 
+    if (!items.length) return;
 
+    return new Promise((resolve, reject) => {
+
+    })
 
 
 
@@ -117,8 +121,9 @@ async function allCommands() {
 
             },
         })
-        .then((e) => {
+        .then(async(e) => {
             console.log(`\nThere are/is ${e.length} item(s) to push  \n`)
+            await deployToServer(e)
             setDate(e)
 
         })
