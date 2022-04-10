@@ -19,10 +19,10 @@ async function deployToServer(items) {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
-                    body: JSON.stringify({
-                        items: items || [],
-                    }),
                 },
+                body: JSON.stringify({
+                    items: items || [],
+                }),
             })
             .then((e) => e.json())
             .then((e) => e)
