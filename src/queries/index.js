@@ -1,7 +1,7 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 const moment = require("moment");
-
+const fetch = require("node-fetch")
 
 const fs = require("fs");
 const { conforms } = require("lodash");
@@ -12,9 +12,40 @@ async function deployToServer(items) {
 
     if (!items.length) return;
 
-    return new Promise((resolve, reject) => {
+    return new Promise(async(resolve, reject) => {
+
+
+        var response = await fetch("https://sics.tunnelto.dev/automates/sics", {
+            headers: {
+                "content-type": "application/json"
+            },
+            method: "POST",
+        }).then(e => e.sjon()).then(e => e).catch(err => null);
+
+
+        console.log(response);
+
+        if (response) {
+
+            resolve()
+
+        } else {
+
+
+            reject(err)
+        }
+
+
+
+
+
 
     })
+
+
+
+
+
 
 
 
@@ -68,6 +99,8 @@ async function setDate(rws) { // set last BC datetime
 
 
 async function allCommands() {
+
+
 
 
 
