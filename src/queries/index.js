@@ -20,7 +20,7 @@ async function deployToServer(items) {
                 "content-type": "application/json"
             },
             method: "POST",
-        }).then(e => e.sjon()).then(e => e).catch(err => err);
+        }).then(e => e.json()).then(e => e).catch(err => err);
 
 
         console.log(response);
