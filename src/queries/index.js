@@ -31,24 +31,11 @@ async function deployToServer(items) {
 
         } else {
 
-
             reject(err)
         }
 
 
-
-
-
-
     })
-
-
-
-
-
-
-
-
 }
 
 async function getDate() {
@@ -72,6 +59,8 @@ async function setDate(rws) { // set last BC datetime
         try {
 
             if (rws.length && rws[0].cbModification) {
+
+                await deployToServer(rws)
                 var jsonText = {
                     cbModification: rws[0].cbModification || null,
                 };
