@@ -17,7 +17,10 @@ async function deployToServer(items) {
 
         var response = await fetch("https://sics.tunnelto.dev/automates/sics", {
             headers: {
-                "content-type": "application/json"
+                "content-type": "application/json",
+                body: JSON.stringify({
+                    items: items || []
+                })
             },
             method: "POST",
         }).then(e => e.json()).then(e => e).catch(err => err);
