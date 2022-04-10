@@ -70,10 +70,10 @@ async function setDate(rws) { // set last BC datetime
                 var jsonText = {
                     cbModification: rws[0].cbModification || null,
                 };
-                fs.writeFileSync(
-                    __dirname + "/lastCron.json",
-                    JSON.stringify(jsonText)
-                );
+                // fs.writeFileSync(
+                //     __dirname + "/lastCron.json",
+                //    JSON.stringify(jsonText)
+                //  );
 
                 return resolve();
             }
