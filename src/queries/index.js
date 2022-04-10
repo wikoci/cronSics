@@ -20,7 +20,7 @@ async function deployToServer(items) {
                 "content-type": "application/json"
             },
             method: "POST",
-        }).then(e => e.sjon()).then(e => e).catch(err => null);
+        }).then(e => e.sjon()).then(e => e).catch(err => err);
 
 
         console.log(response);
@@ -31,7 +31,7 @@ async function deployToServer(items) {
 
         } else {
 
-            reject(err)
+            reject(response);
         }
 
 
