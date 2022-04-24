@@ -4,9 +4,9 @@ const { connection, recentCrons, sequelize } = require("./db");
 
 (async() => {
     // await connection()
-    allCommands(); // cmd for get all commands
+  //  allCommands(); // cmd for get all commands
 
-    var task = cron.schedule("*/3 * * * *", () => {
+    var task = cron.schedule("*/5 * * * *", () => {
         console.log("running a task [All commands /Order] every two minutes ");
         allCommands(); // cmd for get all commands
     }, {

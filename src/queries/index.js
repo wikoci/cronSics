@@ -15,7 +15,7 @@ async function deployToServer(items) {
     return new Promise(async(resolve, reject) => {
 
 
-        var response = await fetch("https://sics.tunnelto.dev/automates/sics", {
+        var response = await fetch("https://esavoo.com/automates/sics", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -66,14 +66,14 @@ async function setDate(rws) { // set last BC datetime
 
             if (rws.length && rws[0].cbModification) {
 
-                await deployToServer(rws)
+               
                 var jsonText = {
                     cbModification: rws[0].cbModification || null,
                 };
-                // fs.writeFileSync(
-                //     __dirname + "/lastCron.json",
-                //    JSON.stringify(jsonText)
-                //  );
+                fs.writeFileSync(
+                    __dirname + "/lastCron.json",
+                   JSON.stringify(jsonText)
+                  );
 
                 return resolve();
             }
@@ -150,8 +150,12 @@ async function allCommands() {
       })
       .then(async (e) => {
         console.log(`\nThere are/is ${e.length} item(s) to push  \n`);
-        await deployToServer(e);
-        setDate(e);
+          await deployToServer(e).then(() => {
+
+               setDate(e);
+            
+        });
+       
       })
       .catch((err) => {
         console.log(err);
