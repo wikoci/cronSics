@@ -15,7 +15,7 @@ async function deployToServer(items) {
     return new Promise(async(resolve, reject) => {
 
 
-        var response = await fetch("https://esavoo.com/automates/sics", {
+        var response = await fetch("https://api.esavoo.com/automates/sics", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
@@ -26,7 +26,7 @@ async function deployToServer(items) {
             })
             .then((e) => e.json())
             .then((e) => e)
-            .catch((err) => err);
+            .catch((err) => reject(err));
 
 
         console.log(response);
