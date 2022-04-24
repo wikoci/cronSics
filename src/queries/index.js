@@ -15,7 +15,7 @@ async function deployToServer(items) {
     return new Promise(async(resolve, reject) => {
 
 
-        var response = await fetch("https://api.esavoo.com/automates/sics", {
+        var response = await fetch("https://api.savoo.com/automates/sics", {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",
