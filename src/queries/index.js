@@ -154,7 +154,7 @@ async function allCommands() {
 
                setDate(e);
             
-        });
+        }).catch();
        
       })
       .catch((err) => {
