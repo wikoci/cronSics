@@ -117,47 +117,45 @@ async function allCommands() {
     console.log(chalk.green('Latest cron did on ' + Cron_.cbModification))
 
     prisma.f_DOCLIGNE
-        .findMany({
-            orderBy: {
-                cbModification: "desc",
-            },
-            where: {
-                cbModification: {
-                    gt: Cron_.cbModification,
-                },
-                DO_Type: { in: [3] },
-                CO_No: {
-                    gte: 42,
-                    notIn: [46, 47]
-                },
-
-            },
-            select: {
-                CO_No: true, //
-                CT_Num: true, // Code client
-                cbModification: true, // Date de modification et date de mise à jour
-                DO_Ref: true, //
-                DO_Piece: true, //Code du BL - ID 1
-                AR_Ref: true, // Code article,
-                DL_Qte: true, // Quantité article
-                DL_Ligne: true, // Ligne - ID 2
-                DL_PoidsNet: true, //Poids
-                DL_MontantHT: true, //
-                DL_MontantTTC: true, //
-                DL_Design: true, //
-                Calcul_Poids: true //
-
-            },
-        })
-        .then(async(e) => {
-            console.log(`\nThere are/is ${e.length} item(s) to push  \n`)
-            await deployToServer(e)
-            setDate(e)
-
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+      .findMany({
+        orderBy: {
+          cbModification: "desc",
+        },
+        where: {
+          cbModification: {
+            gt: Cron_.cbModification,
+          },
+          DO_Type: { in: [3] },
+          CO_No: {
+            gte: 42,
+            notIn: [46, 47],
+          },
+        },
+        select: {
+          CO_No: true, //
+          CT_Num: true, // Code client
+          cbModification: true, // Date de modification et date de mise à jour
+          DO_Ref: true, // Code du BL - ID 1
+          DO_Piece: true, //
+          AR_Ref: true, // Code article,
+          DL_Qte: true, // Quantité article
+          DL_Ligne: true, // Ligne - ID 2
+          DL_PoidsNet: true, //Poids
+          DL_MontantHT: true, //
+            DL_MontantTTC: true, //
+          DL_PUTTC: true, // Prix unitaire
+          DL_Design: true, // Nom de l'article
+          Calcul_Poids: true, //
+        },
+      })
+      .then(async (e) => {
+        console.log(`\nThere are/is ${e.length} item(s) to push  \n`);
+        await deployToServer(e);
+        setDate(e);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
 }
 
